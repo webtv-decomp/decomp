@@ -35,7 +35,7 @@ int main(void)
   }
   InitIR();
   InitTuner();
-  _DAT_a4000030 = 0x69;
+  WDVALUE_0030 = 0x69;
   Watchdog(1);
   NVInit(1);
   ProtectMemory();
