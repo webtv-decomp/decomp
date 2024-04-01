@@ -4,7 +4,6 @@ int main(void)
   DeviceManager _gDeviceManager;
   int counter;
   
-  __main();
   SizeMem();
   DetermineBootType();
   InitExceptions();
