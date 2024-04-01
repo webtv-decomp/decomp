@@ -1,2 +1,2 @@
 # The webtv decompilation project
-(insert readme here)
+This is a decompilation of lc2 2046 build
