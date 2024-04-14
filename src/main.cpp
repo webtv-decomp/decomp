@@ -4,7 +4,7 @@ int main(int param_1,undefined *param_2,undefined4 param_3,int *param_4)
 
 {
     uint **in_v0;
-    int iVar1;
+    int syschiprevision;
     int ParallelDriver;
 
     SizeMem();
