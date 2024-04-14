@@ -19,10 +19,8 @@ int main(void)
     InitCrashLog();
     SetROMTiming();
     InitSiliconSerialNumber();
-    __builtin_new(4);
-    DeviceManager__DeviceManager(in_v0);
-    _gDeviceManager = in_v0;
-    DeviceManager__ProbeExpansionBus(in_v0);
+    _gDeviceManager = new DeviceManager();
+    DeviceManager__ProbeExpansionBus();
     InitDebugIO();
     InitRIO();
     InitWTVPort();
