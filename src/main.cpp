@@ -4,6 +4,8 @@ int main(void)
 
 {
     DeviceManager _gDeviceManager;
+    VideoDriver _gVideoDriver;
+    
     int counter;
 
     SizeMem();
@@ -26,7 +28,7 @@ int main(void)
     InitWTVPort();
     InitAudio();
     counter = FetchCounter();
-    SetCompare(iVar1 + _DAT_8000028c * 10000);
+    SetCompare(counter +  0x38 * 10000);
     enable_cpu_ints(0xc400);
     SetPowerLEDState(2);
     InitParallelPort();
