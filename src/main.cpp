@@ -29,7 +29,7 @@ int main(int param_1,undefined *param_2,undefined4 param_3,int *param_4)
     InitRIO();
     InitWTVPort();
     InitAudio();
-    iVar1 = FetchCounter();
+    counter = FetchCounter();
     SetCompare(iVar1 + _DAT_8000028c * 10000);
     enable_cpu_ints(0xc400);
     SetPowerLEDState(2);
