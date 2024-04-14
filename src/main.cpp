@@ -1,11 +1,10 @@
 #include "include/webtv.h"
 
-int main(int param_1,undefined *param_2,undefined4 param_3,int *param_4)
+int main(void)
 
 {
-    uint **in_v0;
-    int syschiprevision;
-    int ParallelDriver;
+    DeviceManager _gDeviceManager;
+    int counter;
 
     SizeMem();
     DetermineBootType();
@@ -15,9 +14,8 @@ int main(int param_1,undefined *param_2,undefined4 param_3,int *param_4)
     InitIICIntf();
     CrashCounter();
     InitializeFilesystems();
-    __builtin_new(0x70);
-    _gVideoDriver = in_v0;
-    VideoDriver__Init((char *)in_v0);
+    _gVideoDriver = DeviceManager(0x70);
+    VideoDriver::Init();
     InitCrashLog();
     SetROMTiming();
     InitSiliconSerialNumber();
@@ -40,11 +38,10 @@ int main(int param_1,undefined *param_2,undefined4 param_3,int *param_4)
     }
     InitIR();
     InitTuner();
-    _DAT_a4000030 = 0x69;
-    Watchdog('\x01');
-    uVar2 = 1;
+    _BUS_WDVALUE = 0x69;
+    Watchdog(1);
     NVInit(1);
     ProtectMemory();
-    LateBoot(uVar2,param_2,param_3,param_4);
+    LateBoot();
     return 0;
 }
