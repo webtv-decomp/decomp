@@ -6,8 +6,8 @@ void InitAudio(void)
   }
   _gCurrentAudioBuf = _gAudioBuf0;
   InitAudioCodec();
-  _DAT_a4002018 = 0;
-  _DAT_a4002014 = 0x800;
+  AUD_ONCONFIG = 0;
+  AUD_ONSIZE = 0x800;
   InitAudioClock();
   RegisterIntHandler(0x13,audioInterruptHandler,0,0);
   InitAudioInput();
