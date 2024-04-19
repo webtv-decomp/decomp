@@ -6,8 +6,8 @@ void InitSoloIR(void)
   _irSampleTail = 0;
   _irSampleHead = 0;
   SetSampleInterval(0xf);
-  _Ox04004024 = 10;
-  _Ox0400402c = 0x3083;
+  DEV_IRIN_REJECT_INT = 10;
+  DEV_IRIN_STATCNTL = 0x3083;
   InitDecodeSony();
   InitDecodeSejin();
   InitDecodePhilips();
