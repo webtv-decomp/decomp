@@ -18,7 +18,7 @@ void CrashCounter(void)
     }
 
     if (NewCrashCounter == '\x06') {
-        // most likely MaxiBrowser is hosed; invalidate and go to MiniBrowser
+        // most likely MaxiBrowser is hosed; invalidate and go to MiniBrowser (Logs it in Serial console on debug buildss)
         WriteCrashCount(6);
         InvalidateMaxiBrowser();
         Watchdog(1);
@@ -29,7 +29,7 @@ void CrashCounter(void)
         WriteCrashCount(0);
         // Good news your box hasnt crashed
         InvalidateMaxiBrowser();
-        // Ryder: code looks like it sets counter to 0 meaning it hasnt crashed but It goes to Minibrowser because the MaxiBrowser (Approm) has been disabled for that startup
+        // Ryder: code looks like it sets counter to 0 meaning it hasnt crashed but It goes to Minibrowser (Memory address 0x80200000) because the MaxiBrowser (Approm) has been disabled for that startup (Logs it in Serial console on debug buildss)
         SetNVFlag(1, 0x14);
         // Sets NVFlag to 10 afer
         Watchdog(1);
