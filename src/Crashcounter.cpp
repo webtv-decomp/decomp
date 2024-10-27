@@ -13,22 +13,28 @@ void CrashCounter(void)
     NewCrashCounter = CrashCounter + 1;
 
     if (NewCrashCounter == '\x04') {
+        // is a bad NVRAM value causing the crashes?
         gEraseNVSoon = 1;
     }
 
     if (NewCrashCounter == '\x06') {
+        // most likely MaxiBrowser is hosed; invalidate and go to MiniBrowser
         WriteCrashCount(6);
         InvalidateMaxiBrowser();
         Watchdog(1);
-        return;  // Exit the function after performing the actions
+        return;
     }
 
-    if (cVar3 == '\b') {
+    if (NewCrashCounter == '\b') {
         WriteCrashCount(0);
+        // Good news your box hasnt crashed
         InvalidateMaxiBrowser();
+        // Ryder: code looks like it sets counter to 0 meaning it hasnt crashed but It goes to Minibrowser because the MaxiBrowser (Approm) has been disabled for that startup
         SetNVFlag(1, 0x14);
+        // Sets NVFlag to 10 afer
         Watchdog(1);
-        return;  // Exit the function after performing the actions
+        // Activate Watchdog
+        return;
     }
 
     NVRead = GetNVFlag(0x10);
@@ -37,5 +43,5 @@ void CrashCounter(void)
         SetNVFlag(0, 0x10);
     }
 
-    WriteCrashCount(NewCrashCounter;
+    WriteCrashCount(NewCrashCounter);
 }
